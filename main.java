@@ -10,9 +10,7 @@ public class main implements Serializable {
 	public static void main(String[] args) {
 		
 		ArrayList<user> users = new ArrayList<>();
-		
 		ArrayList<group> groups = new ArrayList<>() ;
-		
 		ArrayList<messages> message = new ArrayList<>();
 		ArrayList<page> pages = new ArrayList<>() ;
 		
