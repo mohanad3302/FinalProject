@@ -1,16 +1,16 @@
 import java.util.*;
 public class signup extends system{
 
-	private ArrayList<user> users = getUsers();
+	
 	Scanner input = new Scanner (System.in);
 	
 	public signup() {
 		
 	}
-	public void signUp() {
+	public void signUp(ArrayList<user> users) {
 		
 		System.out.print("userName : ");
-		String name = nameValidation();
+		String name = nameValidation(users);
 		
 		System.out.print("age : ");
 		int age = numberValidation();
@@ -34,11 +34,10 @@ public class signup extends system{
 		String address = input.next();
 		
 		user user = new user(name , email , phoneNumber , address , age , education , work ,password );
-		system system = new system();
-		system.setUsers(user);
+		users.add(user);
 		
 	}
-	public String nameValidation() {
+	public String nameValidation(ArrayList<user> users) {
 		
 		String m = null ;
 		boolean n = true ;
@@ -62,7 +61,7 @@ public class signup extends system{
 		
 	}
 	
-	public void emailValidation() {
+	public void emailValidation(ArrayList<user> users) {
 		
 		boolean n = true ;
 		String email = input.next();

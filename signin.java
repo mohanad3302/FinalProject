@@ -3,9 +3,8 @@ public class signin extends system{
 	public signin() {
 		
 	}
-	private ArrayList<user> users = getUsers() ;
 	
-	public user siginIn() {
+	public user siginIn( ArrayList<user> users) {
 		Scanner input = new Scanner(System.in);
 		
 		System.out.println("userName : ");

@@ -163,9 +163,9 @@ public class user extends system {
 		return privatePosts ;
 	}
 	
-	public void joinGroup (String groupName) {
+	public void joinGroup (String groupName , ArrayList<group> groups) {
 
-		group x = searchForGroup(groupName);
+		group x = searchForGroup(groupName , groups );
 		
 		if(x == null) {
 			System.out.println("you are searching for a group that don't exist");
@@ -179,9 +179,9 @@ public class user extends system {
 			}
 		}
 	}
-	public void leaveGroup (String groupName) {
+	public void leaveGroup (String groupName , ArrayList<group> groups ) {
 		
-		group x = searchForGroup(groupName);
+		group x = searchForGroup(groupName , groups);
 		if (x == null ) {
 			System.out.println("you are not a member of this group");
 		}
@@ -194,9 +194,9 @@ public class user extends system {
 			}
 		}
 	}
-	public void joinPage (String pageName) {
+	public void joinPage (String pageName , ArrayList<page> pages ) {
 
-		page x = searchForPage(pageName);
+		page x = searchForPage(pageName , pages );
 		if(x == null) {
 			System.out.println("you are searching for a page that don't exist");
 		}
@@ -209,9 +209,9 @@ public class user extends system {
 			}
 		}
 	}
-	public void leavePage (String pageName) {
+	public void leavePage (String pageName , ArrayList<page> pages ) {
 
-		page x = searchForPage(pageName);
+		page x = searchForPage(pageName , pages);
 		if (x == null ) {
 			System.out.println("you are not a member of this page");
 		}
@@ -241,9 +241,9 @@ public class user extends system {
 			}
 		}
 	}
-	public void AddFriends(String userName  ,user o) {
+	public void AddFriends(String userName  ,user o , ArrayList<user> users ) {
 
-		user x = searchForUser(userName) ;
+		user x = searchForUser(userName , users ) ;
 		if (x == null ) {
 			System.out.println("couldn't find user you are searching for ");
 		}
@@ -278,9 +278,9 @@ public class user extends system {
 		}
 		return x ;
 	}
-	public void followUser (String userName) {
+	public void followUser (String userName , ArrayList<user> users) {
 
-		user x = searchForUser(userName);
+		user x = searchForUser(userName , users);
 		if(x == null) {
 			System.out.println("couldn't find user you are searching for .");
 		}

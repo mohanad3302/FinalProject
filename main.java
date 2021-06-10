@@ -1,21 +1,21 @@
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
+import java.io.Serializable;
 
-public class main {
 
-	ArrayList<user> users = new ArrayList<>() ;
-	ArrayList<post> posts = new ArrayList<>() ;
-	ArrayList<group> groups = new ArrayList<>() ;
-	ArrayList<messages> message = new ArrayList<>();
-	ArrayList<page> pages = new ArrayList<>() ;
-	
+public class main implements Serializable {
+
+
 	public static void main(String[] args) {
 		
-		system.deserlizeGroup();
-		system.deserlizePage();
-		system.deserlizeUser();
-
+		ArrayList<user> users = new ArrayList<>();
+		
+		ArrayList<group> groups = new ArrayList<>() ;
+		
+		ArrayList<messages> message = new ArrayList<>();
+		ArrayList<page> pages = new ArrayList<>() ;
+		
 		Scanner input = new Scanner(System.in) ;
 		int y = 0; 
 
@@ -26,13 +26,13 @@ public class main {
 			signup signup = new signup();
 			y = signup.numberValidation() ;
 			if (y == 1) { 
-				signup.signUp();
+				signup.signUp(users);
 				
 
 			}
 			else if (y == 2) {
 				signin signin = new signin();
-				user o = signin.siginIn();
+				user o = signin.siginIn(users);
 						int x= 0 ;
 						while(x != 15) {
 							System.out.println("enter 1 to see Home Page  .");
@@ -65,7 +65,7 @@ public class main {
 								case 2:
 									System.out.print("enter name of user you want to search for : ");
 									String UserName = input.next();
-									o.AddFriends(UserName , o);
+									o.AddFriends(UserName , o , users);
 									break;
 									
 									// to join groups
@@ -73,7 +73,7 @@ public class main {
 								case 3 :
 									System.out.print("enter name of group you want to join : ");
 									String GroupName = input.next();
-									o.joinGroup(GroupName);
+									o.joinGroup(GroupName , groups);
 									break;
 									
 									// to join pages
@@ -81,7 +81,7 @@ public class main {
 								case 4 :
 									System.out.print("enter name of page you want to join : " ) ;
 									String pageName = input.next();
-									o.joinPage(pageName);
+									o.joinPage(pageName , pages);
 									break;
 									
 									// to create post
@@ -115,7 +115,7 @@ public class main {
 									page page = new page(PageName , pageDate , o ) ;
 									System.out.println("description : (enter end to finish)");
 									page.setDescription();
-									system.setPages(page);
+									pages.add(page);
 									o.SetUserPages(page);
 									break;
 									
@@ -130,7 +130,7 @@ public class main {
 									group.setDescription();
 									o.setUserGroups(group);
 									o.setUserGroups(group);
-									system.setGroups(group);
+									groups.add(group);
 									break;
 									
 									// to see all of your groups and enter one of them
@@ -154,7 +154,7 @@ public class main {
 								case 12 :
 									System.out.println("enter word you want to search for : ");
 									String word = input.next();
-									system.searchForWord(word, o);
+									
 									break;
 
 									// to follow a user 
@@ -162,7 +162,7 @@ public class main {
 								case 13 : 
 									System.out.print("enter name of user you want to follow : ");
 									UserName = input.next();
-									o.followUser(UserName);
+									o.followUser(UserName , users);
 									break;
 									
 									// to send messages to a user 
@@ -170,7 +170,7 @@ public class main {
 								case 14 :
 									System.out.print("enter name of user you want to see your chat with : ");
 									String Name = input.next();
-									user reciver = system.searchForUser(Name);
+									user reciver = system.searchForUser( Name , users);
 									if(reciver==null) {
 										System.out.println("cant found ");
 									}else {
@@ -182,7 +182,7 @@ public class main {
 										m.setName2(reciver);
 										o.setMessages(m);
 										reciver.setMessages(m);
-										system.setMessage(m);
+										
 									
 									}
 									break;
@@ -190,7 +190,7 @@ public class main {
 								case 17:
 									System.out.print("enter name user you see chat : ");
 									String Name1 = input.next();
-									user reciver1 = system.searchForUser(Name1);
+									user reciver1 = system.searchForUser(Name1 , users);
 									if(reciver1==null) {
 										System.out.println("cant found ");
 									}
@@ -216,7 +216,8 @@ public class main {
 
 										 }									
 							}	
-						}
+							}
+						
 					}
 				}
 			}
