@@ -24,7 +24,7 @@ public  class system implements Serializable {
 	public  void setUsers(user o) {
 		users.add(o);
 	}
-	public void setUsers(ArrayList<user> o){
+	public void setoUsers(ArrayList<user> o){
 		for ( int i = 0  ; i < o.size() ; i ++ ){
 			users.add(o.get(i));
 		}
