@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class groupView {
+public class groupView extends group {
 	Scanner input = new Scanner(System.in);
 	
 	public groupView() {

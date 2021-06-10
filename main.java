@@ -3,11 +3,18 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class main {
-	system system = new system();
+
+	ArrayList<user> users = new ArrayList<>() ;
+	ArrayList<post> posts = new ArrayList<>() ;
+	ArrayList<group> groups = new ArrayList<>() ;
+	ArrayList<messages> message = new ArrayList<>();
+	ArrayList<page> pages = new ArrayList<>() ;
 	
 	public static void main(String[] args) {
 		
-		system system = new system();
+		system.deserlizeGroup();
+		system.deserlizePage();
+		system.deserlizeUser();
 
 		Scanner input = new Scanner(System.in) ;
 		int y = 0; 

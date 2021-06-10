@@ -1,8 +1,6 @@
 import java.util.*;
 
-import java.io.Serializable;
-
-public class user implements Serializable {
+public class user extends system {
 	
 	private String name ;
 	private String password ;
@@ -166,8 +164,8 @@ public class user implements Serializable {
 	}
 	
 	public void joinGroup (String groupName) {
-		system system = new system();
-		group x = system.searchForGroup(groupName);
+
+		group x = searchForGroup(groupName);
 		
 		if(x == null) {
 			System.out.println("you are searching for a group that don't exist");
@@ -182,8 +180,8 @@ public class user implements Serializable {
 		}
 	}
 	public void leaveGroup (String groupName) {
-		system system = new system();
-		group x = system.searchForGroup(groupName);
+		
+		group x = searchForGroup(groupName);
 		if (x == null ) {
 			System.out.println("you are not a member of this group");
 		}
@@ -197,8 +195,8 @@ public class user implements Serializable {
 		}
 	}
 	public void joinPage (String pageName) {
-		system system = new system();
-		page x = system.searchForPage(pageName);
+
+		page x = searchForPage(pageName);
 		if(x == null) {
 			System.out.println("you are searching for a page that don't exist");
 		}
@@ -212,8 +210,8 @@ public class user implements Serializable {
 		}
 	}
 	public void leavePage (String pageName) {
-		system system = new system();
-		page x = system.searchForPage(pageName);
+
+		page x = searchForPage(pageName);
 		if (x == null ) {
 			System.out.println("you are not a member of this page");
 		}
@@ -244,8 +242,8 @@ public class user implements Serializable {
 		}
 	}
 	public void AddFriends(String userName  ,user o) {
-		system system = new system();
-		user x = system.searchForUser(userName) ;
+
+		user x = searchForUser(userName) ;
 		if (x == null ) {
 			System.out.println("couldn't find user you are searching for ");
 		}
@@ -281,8 +279,8 @@ public class user implements Serializable {
 		return x ;
 	}
 	public void followUser (String userName) {
-		system system = new system();
-		user x = system.searchForUser(userName);
+
+		user x = searchForUser(userName);
 		if(x == null) {
 			System.out.println("couldn't find user you are searching for .");
 		}

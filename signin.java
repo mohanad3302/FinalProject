@@ -1,10 +1,9 @@
 import java.util.* ;
-public class signin {
+public class signin extends system{
 	public signin() {
 		
 	}
-	system system = new system();
-	private ArrayList<user> users = system.getUsers() ;
+	private ArrayList<user> users = getUsers() ;
 	
 	public user siginIn() {
 		Scanner input = new Scanner(System.in);

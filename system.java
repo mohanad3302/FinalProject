@@ -6,12 +6,9 @@ import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.io.Serializable;
 import java.util.* ;
-public  class system implements Serializable {
-	private  ArrayList<user> users = new ArrayList<>() ;
-	private  ArrayList<post> posts = new ArrayList<>() ;
-	private  ArrayList<group> groups = new ArrayList<>() ;
-	private  ArrayList<messages> message = new ArrayList<>();
-	private  ArrayList<page> pages = new ArrayList<>() ;
+
+public abstract class system extends main implements Serializable {
+	
 	
 	public system() {
 		
@@ -162,7 +159,7 @@ public  class system implements Serializable {
 	}
 	public void serializeUser(){
 		try{
-			FileOutputStream file = new FileOutputStream("G:\\finalproject\\users\\user.dat");
+			FileOutputStream file = new FileOutputStream("G:\\finalproject\\users\\user.ser");
 			ObjectOutputStream usersFile = new ObjectOutputStream(file);
 			usersFile.writeObject(users);
 			usersFile.close();
@@ -177,7 +174,7 @@ public  class system implements Serializable {
 	}
 	public  void serializePage(){
 		try{
-			FileOutputStream file = new FileOutputStream("G:\\finalproject\\pages\\page.dat");
+			FileOutputStream file = new FileOutputStream("G:\\finalproject\\pages\\page.ser");
 			ObjectOutputStream pageFile  = new ObjectOutputStream(file);
 			pageFile.writeObject(pages);
 			pageFile.close();
@@ -193,7 +190,7 @@ public  class system implements Serializable {
 	}
 	public  void serializeGroup(){
 		try {
-			FileOutputStream file = new FileOutputStream("G:\\finalproject\\groups\\group.dat");
+			FileOutputStream file = new FileOutputStream("G:\\finalproject\\groups\\group.ser");
 			ObjectOutputStream groupFile = new ObjectOutputStream(file);
 			groupFile.writeObject(groups);
 			groupFile.close();
@@ -205,7 +202,7 @@ public  class system implements Serializable {
 	}
 	public void deserlizeUser(){
         try{
-            FileInputStream File = new FileInputStream("G:\\finalproject\\users\\user.dat");
+            FileInputStream File = new FileInputStream("G:\\finalproject\\users\\user.ser");
             ObjectInputStream user = new ObjectInputStream(File);
             
             users = (ArrayList) user.readObject();
@@ -224,7 +221,7 @@ public  class system implements Serializable {
     }
 	public void deserlizePage(){
         try{
-            FileInputStream File = new FileInputStream("G:\\finalproject\\pages\\page.dat");
+            FileInputStream File = new FileInputStream("G:\\finalproject\\pages\\page.ser");
             ObjectInputStream page = new ObjectInputStream(File);
             
             pages = (ArrayList<page>) page.readObject();
@@ -243,7 +240,7 @@ public  class system implements Serializable {
     }
 	public void deserlizeGroup(){
         try{
-            FileInputStream File = new FileInputStream("G:\\finalproject\\Groups\\group.dat");
+            FileInputStream File = new FileInputStream("G:\\finalproject\\Groups\\group.ser");
             ObjectInputStream group = new ObjectInputStream(File);
             
             groups = (ArrayList<group>)group.readObject();

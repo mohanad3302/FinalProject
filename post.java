@@ -145,16 +145,14 @@ public class post extends user{
 			post post = new post(postDate , o);
 			post.setText();
 			o.setUserPosts(post);
-			system system = new system();
-			system.setPosts(post);
+			setPosts(post);
 		}
 		else if ( n == 1) {
 			Date postDate = new Date() ;
 			post post = new post(postDate , o);
 			post.setText();
 			o.setPrivatePosts(post);
-			system system = new system();
-			system.setPosts(post);
+			setPosts(post);
 		}
 	}
 }

@@ -1,5 +1,5 @@
 import java.util.*;
-public class viewNotifications {
+public class viewNotifications extends notifications{
 	Scanner input = new Scanner(System.in);
 	public viewNotifications() {
 		

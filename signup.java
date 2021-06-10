@@ -1,8 +1,7 @@
 import java.util.*;
-public class signup {
+public class signup extends system{
 
-	system system = new system();
-	private ArrayList<user> users = system.getUsers();
+	private ArrayList<user> users = getUsers();
 	Scanner input = new Scanner (System.in);
 	
 	public signup() {
