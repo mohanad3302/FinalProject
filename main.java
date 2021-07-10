@@ -8,14 +8,21 @@ public class main implements Serializable {
 
 
 	public static void main(String[] args) {
+
 		
 		ArrayList<user> users = new ArrayList<>();
 		ArrayList<group> groups = new ArrayList<>() ;
-		ArrayList<messages> message = new ArrayList<>();
+		ArrayList<messages> messages = new ArrayList<>();
 		ArrayList<page> pages = new ArrayList<>() ;
 		
+		user user1 = new user("mohanad", "a", 12, "alexandria", 18, "aiu", "student", "Mohanad");
+		users.add(user1);
+		user user2 = new user("mohamed", "a", 12, "alexandria", 18, "aiu", "student", "Mohamed");
+		users.add(user2);
+
 		Scanner input = new Scanner(System.in) ;
 		int y = 0; 
+
 
 		while (y != -1) {
 			System.out.println("enter 1 to signup") ;
@@ -31,6 +38,7 @@ public class main implements Serializable {
 			else if (y == 2) {
 				signin signin = new signin();
 				user o = signin.siginIn(users);
+					if(o != null){
 						int x= 0 ;
 						while(x != 15) {
 							System.out.println("enter 1 to see Home Page  .");
@@ -198,7 +206,7 @@ public class main implements Serializable {
 										messages p=null; 
 										for(int i8=0 ; i8<k.size() ; i8++) {
 											
-											if(k.get(i8).getName1().equals(o) && k.get(i8).getName2().equals(reciver1)){
+											if(k.get(i8).getName1().equals(o) && k.get(i8).getName2().equals(reciver1) || k.get(i8).getName1().equals(reciver1) && k.get(i8).getName2().equals(o) ){
 												p= k.get(i8);
 												break;
 											}
@@ -213,8 +221,9 @@ public class main implements Serializable {
 											 p.printMessage();
 
 										 }									
+									}	
 							}	
-							}
+						}
 						
 					}
 				}

@@ -22,6 +22,7 @@ public class signin extends system{
 			}
 			else {
 				System.out.println("user not found .");
+				user  = null ;
 			}
 		}
 		return user ;

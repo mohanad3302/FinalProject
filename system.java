@@ -212,6 +212,17 @@ public abstract class system extends main implements Serializable {
         }
 		
     }
+	public static void NullPointer (Object  o){
+		try{
+			if ( o == null ){
+				NullPointer(o);
+			}
+		}
+		catch(NullPointerException e ){
+			System.out.println("");
+		}
+
+	}
 	
 }
 

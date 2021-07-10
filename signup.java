@@ -1,4 +1,7 @@
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class signup extends system{
 
 	
@@ -61,19 +64,40 @@ public class signup extends system{
 		
 	}
 	
-	public void emailValidation(ArrayList<user> users) {
+	public String emailValidation(ArrayList<user> users) {
 		
 		boolean n = true ;
 		String email = input.next();
-		
-		for (int i = 0 ; i < users.size(); i ++) {
-			user user = users.get(i);
-			if(email.equals(user.getEmail())) {
-				System.out.println("this email is already used .");
+		String regex = "^[A-Za-z0-9+_.-]+@(.+)$" ;
+		Pattern emailValidation = Pattern.compile(regex);
+		Matcher matcher = emailValidation.matcher(email);
+		while(true){
+			if ( matcher.find() == true){
+				for (int i = 0 ; i < users.size(); i ++) {
+					user user = users.get(i);
+					if(email.equals(user.getEmail())) {
+						System.out.println("this email is already used .");
+						System.out.println("please enter email again ");
+						email = input.next();
+						n = true ;
+					}
+				}
+				if (n) {
+					continue ;
+				}
+				break ;
+			}
+			else if (matcher.find() == false) {
 				System.out.println("please enter email again ");
 				email = input.next();
+				n = true ;
 			}
+			if (n) {
+				continue ;
+			}
+			break ;
 		}
+		return email ;
 	}
 	
 	public int numberValidation() {
