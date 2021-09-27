@@ -22,7 +22,7 @@ public class main implements Serializable {
 
 		Scanner input = new Scanner(System.in) ;
 		int y = 0; 
-		int z = 0 ;
+	
 
 
 		while (y != -1) {
